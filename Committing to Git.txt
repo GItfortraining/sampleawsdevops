@@ -1,0 +1,78 @@
+Welcome back now that we have covered the basics of the staging area,
+we are now going to move onto committing our files to the Git database in our
+repository. Okay.
+So we've already got our files and folders that we want staged and ready to be
+committed. So let's go ahead and perform our first commit.
+We do this with the Git commit command,
+and provide a message that describes what this commit is for. First,
+let's do this the long way.
+The Git commit command by itself will open our text editor,
+which in my case is VIM with the output of our Git status command below an empty
+line.
+The blank line is there for us to enter in a message describing the commit.
+As the output tells us here if we lead this line empty,
+then the commit will not take place. So a message is required.
+The output also lists the files that we are about to commit anything that has
+not been staged by using the Git add command will be ignored by the commit.
+Let's type in our commit message and save and close the file.
+And we see that the three files have been committed.
+Git notes that we have added three files with 23 lines of text insertions
+between the three of them.
+So what exactly is going on behind the scenes when we perform a commit? Well,
+the first thing that we can look at is where the commit messages Git stored.
+Again, going back to our lesson on the Git file system,
+all commit messages get recorded in the commit edit message file
+and here we can see the full output of the commit that we just created.
+Another component of a Git commit is that the contents of the files that we
+commit and not the files themselves get recorded in Git's database to
+find out where this is at. We can run the Git log command.
+We will go over the Git log in more detail later.
+For now we are going to use it to locate the actual commit itself.
+If we look to the right of the commit here, we see a long string of characters.
+This string is the SHA 1 hash value of the contents of the files that we just
+committed.
+Git will take the first two characters of this hash value and create a directory
+name from them under the object's directory
+and here is the file that contains the hash versions of our committed file's
+contents. As you can see,
+the files name consists of the rest of the hash value that we saw in our Git
+log. Now these are binary files, so we cannot directly read them,
+but that's fine as Git keeps track of these files and their contents for us.
+Let's add another file to our project.
+This time we just see the change log file as being ready.
+We have already committed our other files,
+so they are no longer in the staging area. When we commit this file,
+we're going to use a shorter method.
+By using the -m option,
+we specify the commit message with the commit command itself,
+saving us the task of messing around with an editor.
+Now let's go back to removing a file from Git.
+Let's say that we decided to not include a change log in our project,
+and we want to get rid of it. We can use the Git remove command to do so,
+but this time we will use the --cached option,
+which we'll remove it from our index,
+but leave the actual file behind in our working directory
+and the listing output shows us that the file still exists on our disk, however,
+our Git database needs to be updated to reflect this change,
+and we can see the same information with the shortened status output.
+The D indicates that the file has been deleted. So in order to clean this up,
+we just need to run another commit.
+Let's do this one the longer way so we can see how it all fits together
+and here's our status showing that the file was deleted,
+enter in a commit message here
+and save and close the file.
+The output shows us that the file was removed. Note,
+however that there is still an object for the file itself in Git's database.
+That's just part of how Git keeps a record of the project's entire history.
+There is another way that we can commit a file to Git and by doing so,
+we bypass the staging area altogether after we have modified a
+file. So we still have our change log file, but it is not in the staging area.
+Let's add it
+back and let's make a change to the
+file.
+We can commit this file back to our project and skipping the staging area by
+using the -a option,
+which will take care of adding the file for us after we have just modified it
+and now the change log file along with our additions have been added back to the
+Git repository. That will cover it for this lesson.
+So mark it as complete and let's move on to the next.
